@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+     <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireHost>true</IsAspireHost>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Aspire.Dashboard.Sdk.osx-arm64" Version="9.0.0" />
+      <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+      <PackageReference Include="Aspire.Hosting.Azure.CognitiveServices" Version="9.0.0" />
+      <PackageReference Include="Aspire.Hosting.Orchestration.osx-arm64" Version="9.0.0" />
+      <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.0.0" />
+      <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.0.0" />
+      <PackageReference Include="Aspire.Hosting.Redis" Version="9.0.0" />
+      <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.0.0" />
+      <PackageReference Include="RabbitMQ.Client" Version="7.0.0" />
+      <PackageReference Include="SonarAnalyzer.CSharp" Version="10.3.0.106239">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Apps\Shopping.Web\Shopping.Web.csproj" />
+      <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Messaging\BuildingBlocks.Messaging.csproj" />
+      <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
+      <ProjectReference Include="..\..\Gateways\YarpApiGateway\YarpApiGateway.csproj" />
+      <ProjectReference Include="..\..\Services\Basket\Basket.API\Basket.API.csproj" />
+      <ProjectReference Include="..\..\Services\Catalog\Catalog.API\Catalog.API.csproj" />
+      <ProjectReference Include="..\..\Services\Discount\Discount.Grpc\Discount.Grpc.csproj" />
+      <ProjectReference Include="..\..\Services\Ordering\Ordering.API\Ordering.API.csproj" />
+    </ItemGroup>
+
+</Project>
