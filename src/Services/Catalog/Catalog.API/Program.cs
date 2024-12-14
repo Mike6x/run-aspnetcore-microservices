@@ -46,7 +46,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddApiVersioning();
+
 builder.RegisterModules();
 
 var app = builder.Build();

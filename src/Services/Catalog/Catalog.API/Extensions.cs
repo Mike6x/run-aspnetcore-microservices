@@ -29,6 +29,8 @@ public static class Extensions
         });
 
         //register module services
+        builder.Services.ConfigureOpenApi();
+        
         builder.RegisterCatalogServices();
         // builder.RegisterTodoServices();
         //
