@@ -12,6 +12,13 @@ namespace BuildingBlocks.OpenApi;
 
 public static class Extensions
 {
+    public static WebApplicationBuilder AddOpenApi(this WebApplicationBuilder builder)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        builder.Services.ConfigureOpenApi();
+        return builder;
+    }
+
     public static IServiceCollection ConfigureOpenApi(this IServiceCollection services)
     {
         ArgumentNullException.ThrowIfNull(services);

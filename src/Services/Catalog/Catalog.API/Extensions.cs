@@ -1,4 +1,5 @@
 using System.Reflection;
+using Asp.Versioning.Conventions;
 using BuildingBlocks.OpenApi;
 // using Asp.Versioning.Conventions;
 // using BuildingBlocks.OpenApi;
@@ -80,17 +81,17 @@ public static class Extensions
         // app.UseElearningModule();
 
         //register api versions
-        // var versions = app.NewApiVersionSet()
-        //             .HasApiVersion(1)
-        //             .HasApiVersion(2)
-        //             .ReportApiVersions()
-        //             .Build();
+        var versions = app.NewApiVersionSet()
+                    .HasApiVersion(1)
+                    .HasApiVersion(2)
+                    .ReportApiVersions()
+                    .Build();
 
         // //map versioned endpoint
-        // var endpoints = app.MapGroup("api/v{version:apiVersion}").WithApiVersionSet(versions);
+        var endpoints = app.MapGroup("api/v{version:apiVersion}").WithApiVersionSet(versions);
 
         //use carter
-        //endpoints.MapCarter();
+        endpoints.MapCarter();
 
         return app;
     }
