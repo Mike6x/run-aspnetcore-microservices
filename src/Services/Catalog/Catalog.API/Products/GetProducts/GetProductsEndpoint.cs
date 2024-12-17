@@ -31,7 +31,7 @@ public static class GetProductsEndpoint
     internal static RouteHandlerBuilder MapGetProductsEndpoint(this IEndpointRouteBuilder endpoints)
     {
         return endpoints
-            .MapPost("/products", async (ISender sender, [AsParameters] GetProductsRequest request) =>
+            .MapGet("/", async (ISender sender, [AsParameters] GetProductsRequest request) =>
             {
                 var query = request.Adapt<GetProductsQuery>();
 

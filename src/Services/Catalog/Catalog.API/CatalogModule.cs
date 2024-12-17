@@ -14,7 +14,7 @@ public static class CatalogModule
         public Endpoints() : base("catalog") { }
         public override void AddRoutes(IEndpointRouteBuilder app)
         {
-            RouteGroupBuilder productGroup = app.MapGroup("products").WithTags("products");
+            RouteGroupBuilder productGroup = app.MapGroup("products").WithTags("Products");
             productGroup.MapCreateProductEndpoint();
             productGroup.MapGetProductByIdEndpoint();
             productGroup.MapGetProductsEndpoint();

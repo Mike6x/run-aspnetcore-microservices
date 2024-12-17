@@ -43,6 +43,6 @@ public static class GetProductByIdEndpoint
             .Produces<GetProductByIdResponse>()
             .ProducesProblem(StatusCodes.Status400BadRequest)
             //.RequirePermission("Permissions.Products.View")
-            .MapToApiVersion(1);
+            .MapToApiVersion(2);
     }
 }

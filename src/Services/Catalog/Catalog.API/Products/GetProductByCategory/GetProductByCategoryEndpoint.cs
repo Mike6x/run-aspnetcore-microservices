@@ -30,7 +30,7 @@ public static class GetProductByCategoryEndpoint
     internal static RouteHandlerBuilder MapGetProductByCategoryEndpoint(this IEndpointRouteBuilder endpoints)
     {
         return endpoints
-            .MapGet("/products/category/{category}", 
+            .MapGet("/category/{category}", 
                 async (string category, ISender sender) =>
                 {
                     var result = await sender.Send(new GetProductByCategoryQuery(category));

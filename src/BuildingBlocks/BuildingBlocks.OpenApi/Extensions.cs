@@ -81,28 +81,37 @@ public static class Extensions
                 options.DocExpansion(DocExpansion.None);
                 options.DisplayRequestDuration();
 
-                var swaggerEndpoints = app.DescribeApiVersions()
-                    .Select(desc => new
-                    {
-                        Url = $"/swagger/{desc.GroupName}/swagger.json",
-                        Name = desc.GroupName.ToUpperInvariant()
-                    });
+                // var swaggerEndpoints = app.DescribeApiVersions()
+                //     .Select(desc => new
+                //     {
+                //         Url = $"/swagger/{desc.GroupName}/swagger.json",
+                //         Name = desc.GroupName.ToUpperInvariant()
+                //     });
+                //
+                // foreach (var endpoint in swaggerEndpoints)
+                // {
+                //     options.SwaggerEndpoint(endpoint.Url, endpoint.Name);
+                // }
 
+                var swaggerEndpoints = app.DescribeApiVersions();
                 foreach (var endpoint in swaggerEndpoints)
                 {
-                    options.SwaggerEndpoint(endpoint.Url, endpoint.Name);
+                    var url = $"/swagger/{endpoint.GroupName}/swagger.json";
+                    var name = endpoint.GroupName.ToUpperInvariant();
+                    options.SwaggerEndpoint(url, name);
                 }
+                
             });
             
             // Register API versions
-            var versions = app.NewApiVersionSet()
-                .HasApiVersion(1)
-                .HasApiVersion(2)
-                .ReportApiVersions()
-                .Build();
+            // var versions = app.NewApiVersionSet()
+            //     .HasApiVersion(1)
+            //     .HasApiVersion(2)
+            //     .ReportApiVersions()
+            //     .Build();
 
             // Map versioned endpoint
-            app.MapGroup("api/v{version:apiVersion}").WithApiVersionSet(versions);
+            // app.MapGroup("api/v{version:apiVersion}").WithApiVersionSet(versions);
         }
         return app;
     }

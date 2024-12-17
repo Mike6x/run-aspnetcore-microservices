@@ -33,7 +33,7 @@ public static class UpdateProductEndpoint
     internal static RouteHandlerBuilder MapUpdateProductEndpoint(this IEndpointRouteBuilder endpoints)
     {
         return endpoints
-            .MapPut("/products", 
+            .MapPut("/", 
                 async (UpdateProductRequest request, ISender sender) =>
                 {
                     var command = request.Adapt<UpdateProductCommand>();
