@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
+using Basket.API.Domain;
 
 namespace Basket.API.Data;
 

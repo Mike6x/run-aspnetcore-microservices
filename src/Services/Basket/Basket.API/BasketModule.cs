@@ -1,27 +1,21 @@
-using Catalog.API.Features.v1.Products;
-using Catalog.API.Features.v2.Products;
+using Basket.API.Features.v1.Basket;
 
-namespace Catalog.API;
+namespace Basket.API;
 
-public static class CatalogModule
+public static class BasketModule
 {
     public class Endpoints : CarterModule
     {
-        public Endpoints() : base("catalog") { }
+        public Endpoints() : base("basket") { }
+        
         public override void AddRoutes(IEndpointRouteBuilder app)
         {
-            var productGroup = app.MapGroup("products").WithTags("Product's API Group");
-            productGroup.MapCreateProductEndpoint();
-            productGroup.MapGetProductByIdEndpoint();
-            productGroup.MapGetProductsEndpoint();
-            productGroup.MapGetProductByCategoryEndpoint();
-            productGroup.MapUpdateProductEndpoint();
-            productGroup.MapDeleteProductEndpoint();
-            // productGroup.MapExportProductsEndpoint();
-            // productGroup.MapImportProductsEndpoint();
-            
-            productGroup.MapGetProductsV2Endpoint();
-
+            var basketGroup = app.MapGroup("baskets").WithTags("Basket's API Group");
+            basketGroup.MapCheckoutBasketEndpoint();
+            basketGroup.MapGetBasketEndpoint();
+            basketGroup.MapStoreBasketEndpoint();
+            basketGroup.MapDeleteBasketEndpoint();
+    
             // RouteGroupBuilder brandGroup = app.MapGroup("brands").WithTags("brands");
             // brandGroup.MapCreateBrandEndpoint();
             // brandGroup.MapGetBrandEndpoint();

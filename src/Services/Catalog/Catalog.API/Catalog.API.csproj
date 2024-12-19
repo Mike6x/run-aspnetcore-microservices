@@ -29,4 +29,8 @@
     <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\v1\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace Basket.API.Data;
+﻿using Basket.API.Domain;
+
+namespace Basket.API.Data;
 
 public class BasketRepository(IDocumentSession session)
     : IBasketRepository

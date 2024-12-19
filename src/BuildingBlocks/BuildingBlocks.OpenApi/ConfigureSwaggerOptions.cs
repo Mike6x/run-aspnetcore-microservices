@@ -30,12 +30,18 @@ public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
 
     private static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
     {
-        var text = new StringBuilder(".NET 8 Starter Kit with Vertical Slice Architecture!");
+        var text = new StringBuilder(".NET 9 Microservices Starter Kit !");
         var info = new OpenApiInfo()
         {
-            Title = "FSH.Starter.WebApi",
+            Title = "MicroServices Eshop Demo",
             Version = description.ApiVersion.ToString(),
-            Contact = new OpenApiContact() { Name = "Mukesh Murugan", Email = "hello@codewithmukesh.com" }
+            TermsOfService = new Uri("https://github.com/Mike6x"),
+            Contact = new OpenApiContact() { Name = "Mike Pham", Email = "mike.p6x@gmail.com" },
+            License = new OpenApiLicense
+            {
+                Name = "MicroServices License",
+                Url = new Uri("https://github.com/Mike6x")
+            }
         };
 
         if (description.IsDeprecated)

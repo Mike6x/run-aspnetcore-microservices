@@ -1,4 +1,6 @@
-﻿namespace Basket.API.Data;
+﻿using Basket.API.Domain;
+
+namespace Basket.API.Data;
 
 public interface IBasketRepository
 {
