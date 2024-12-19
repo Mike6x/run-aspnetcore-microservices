@@ -1,7 +1,7 @@
 ﻿using MassTransit;
 using Microsoft.FeatureManagement;
 
-namespace Ordering.Application.Orders.EventHandlers.Domain;
+namespace Ordering.Application.Orders.V1.EventHandlers.Domain;
 public class OrderCreatedEventHandler
     (IPublishEndpoint publishEndpoint, IFeatureManager featureManager, ILogger<OrderCreatedEventHandler> logger)
     : INotificationHandler<OrderCreatedEvent>

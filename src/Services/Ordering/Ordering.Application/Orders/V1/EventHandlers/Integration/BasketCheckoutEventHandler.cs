@@ -1,8 +1,7 @@
 ﻿using BuildingBlocks.Messaging.Events;
 using MassTransit;
-using Ordering.Application.Orders.Commands.CreateOrder;
 
-namespace Ordering.Application.Orders.EventHandlers.Integration;
+namespace Ordering.Application.Orders.V1.EventHandlers.Integration;
 public class BasketCheckoutEventHandler
     (ISender sender, ILogger<BasketCheckoutEventHandler> logger)
     : IConsumer<BasketCheckoutEvent>
