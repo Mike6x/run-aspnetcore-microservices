@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingBlocks.Messaging", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{09A61B2A-DB2E-46C6-8A52-3566013B740F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YarpApiGateway", "Gateways\YarpApiGateway\YarpApiGateway.csproj", "{4FD3AA13-E002-4776-AF67-BE89BC142BA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YarpApiGateway", "ApiGateways\YarpApiGateway\YarpApiGateway.csproj", "{4FD3AA13-E002-4776-AF67-BE89BC142BA7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{E7460A59-FF52-45DA-8863-55B4DDB0C352}"
 EndProject

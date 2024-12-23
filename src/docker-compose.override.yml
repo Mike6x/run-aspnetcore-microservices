@@ -1,4 +1,4 @@
-version: '3.4'
+#version: '3.4'
 
 services:
   catalogdb:
@@ -12,6 +12,7 @@ services:
         - "5432:5432"
     volumes:
       - postgres_catalog:/var/lib/postgresql/data/ 
+      
       
       
   basketdb:
@@ -54,9 +55,18 @@ services:
       - RABBITMQ_DEFAULT_PASS=guest
     restart: always
     ports:
-      - "5672:5672"
-      - "15672:15672"
-
+      - "5672:5672"   # The standard AMQP protocol port
+      - "15672:15672" # RabbitMQ management plugin port
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq      # Data persistence
+      # Mount the certs directory of local machine to the container directory
+      - ./certs:/etc/rabbitmq/certs
+      # Custom RabbitMQ configuration file. This file is used to enable SSL and configure the SSL certificates. 
+      # rabbitmq.conf file is mounted to the container directory /etc/rabbitmq/rabbitmq.conf
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      # Start the RabbitMQ server. This command is used to start the RabbitMQ server with the custom configuration file.
+    command: ["rabbitmq-server"]           
+  
   catalog.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
